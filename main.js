@@ -9,7 +9,7 @@ var app = new Vue ({
       },
       {
         text: 'Go to the store',
-        status: 'done'
+        status: 'todo'
       },
       {
         text: 'Buy present for mum',
@@ -38,6 +38,14 @@ var app = new Vue ({
         this.tasks.push(obj);
         this.inputText = '';
       }
+    },
+    changeStatus: function (task) {
+      let position = this.tasks.indexOf(task);
+      this.tasks[position].status = 'done';
+    },
+    removeTask: function (task) {
+      let position = this.tasks.indexOf(task);
+      this.tasks.splice(position, 1);
     }
   }
 });

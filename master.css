@@ -46,6 +46,11 @@
   font-size: 22px;
 }
 
+.crossed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 .container ul li .controls {
   float: right;
   padding: 0 5px;
