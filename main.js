@@ -70,10 +70,15 @@ var app = new Vue ({
       }
       this.changedText = this.tasks[position].text;
     },
-    // All'enter su input fa vedere il testo modificato e nascone l'input
+    // All'enter su input fa vedere il testo modificato e nasconde l'input,
+    // delete task if new input value is empty
     switchText: function (task) {
       let position = this.tasks.indexOf(task);
-      this.tasks[position].text = this.changedText;
+      if (this.changedText == '') {
+        this.tasks.splice(position, 1);
+      } else {
+        this.tasks[position].text = this.changedText;
+      }
       this.tasks[position].edit = 'false'
     }
   }
