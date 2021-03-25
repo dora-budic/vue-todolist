@@ -17,17 +17,29 @@
         <ul>
           <li v-for="task in tasksRearanged">
             <span class="task"
-            :class="(task.status == 'done' ? 'crossed' : '')">{{task.text}}</span>
-            <span v-if="task.status == 'todo'" class="controls edit"><i class="far fa-edit"></i></span>
-            <span
-            v-if="task.status == 'todo'"
+            :class="(task.status == 'done' ? 'crossed' : '')"
+            v-if="task.edit == 'false'">
+            {{task.text}}</span>
+
+            <input v-model="changedText"
+            v-if="task.edit == 'true'"
+            v-on:keyup.enter="switchText(task)"
+            type="text" name="edit">
+
+            <span v-if="task.status == 'todo'"
             @click="changeStatus(task)"
             class="controls done"><i class="far fa-check-circle"></i></span>
+
+            <span v-if="task.status == 'todo'"
+            @click="modifyTask(task)"
+            class="controls edit"><i class="far fa-edit"></i></span>
+
             <span v-if="task.status == 'done'"
             @click="removeTask(task)"
             class="controls delete"><i class="far fa-trash-alt"></i></span>
           </li>
         </ul>
+
         <input type="text" placeholder="New Task"
         v-model="inputText"
         v-on:keyup.enter="add">
