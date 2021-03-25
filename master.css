@@ -3,3 +3,71 @@
   margin: 0;
   padding: 0;
 }
+
+#root {
+  font-family: 'Caveat', cursive;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to bottom, #f6aa65, #ffba55, #ffcd43, #fce22f, #eef81a);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  min-width: 500px;
+  min-height: 300px;
+  padding: 20px;
+  box-shadow: 5px 5px 15px 0px rgba(91,37,12,0.79);
+}
+
+.container h1 {
+  text-align: center;
+  color: #f6aa65;
+}
+
+.container ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.container ul li:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.container ul li .task {
+  color: #83674E;
+  font-size: 22px;
+}
+
+.container ul li .controls {
+  float: right;
+  padding: 0 5px;
+  color: #ffcd43;
+  font-size: 20px;
+}
+
+.container ul li .controls:hover {
+  color: #ffba55;
+  transform: scale(1.5);
+}
+
+.container input {
+  margin-top: auto;
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 3px solid #eef81a;
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+}
+
+.container input:focus {
+  border: 3px solid #fce22f;
+}
