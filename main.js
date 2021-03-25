@@ -9,7 +9,7 @@ var app = new Vue ({
       },
       {
         text: 'Go to the store',
-        status: 'todo'
+        status: 'done'
       },
       {
         text: 'Buy present for mum',
@@ -21,14 +21,23 @@ var app = new Vue ({
       },
     ],
   },
+  computed: {
+    tasksRearanged: function () {
+      let tasksToDo = this.tasks.filter ((item) => item.status == 'todo');
+      let tasksDone = this.tasks.filter ((item) => item.status == 'done');
+      return [...tasksToDo,...tasksDone];
+    }
+  },
   methods: {
     add: function () {
-      let obj = {
-        text: this.inputText,
-        status: 'todo'
+      if (this.inputText != '') {
+        let obj = {
+          text: this.inputText,
+          status: 'todo'
+        }
+        this.tasks.push(obj);
+        this.inputText = '';
       }
-      this.tasks.push(obj);
-      this.inputText = '';
     }
   }
 });

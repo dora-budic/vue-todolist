@@ -15,11 +15,11 @@
       <div class="container">
         <h1>To Do List</h1>
         <ul>
-          <li v-for="task in tasks">
+          <li v-for="task in tasksRearanged">
             <span class="task">{{task.text}}</span>
-            <span class="controls edit"><i class="far fa-edit"></i></span>
-            <span class="controls done"><i class="far fa-check-circle"></i></span>
-            <span class="controls delete"><i class="far fa-trash-alt"></i></span>
+            <span v-if="task.status == 'todo'" class="controls edit"><i class="far fa-edit"></i></span>
+            <span v-if="task.status == 'todo'" class="controls done"><i class="far fa-check-circle"></i></span>
+            <span v-if="task.status == 'done'" class="controls delete"><i class="far fa-trash-alt"></i></span>
           </li>
         </ul>
         <input type="text" placeholder="New Task"
